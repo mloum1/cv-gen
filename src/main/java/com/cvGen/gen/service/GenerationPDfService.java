@@ -8,18 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class GenerationPDfService {
 
 	/**
-	 * Génère un PDF d'exemple en utilisant le helper iText.
-	 * @return bytes du PDF
-	 */
-	@Transactional(readOnly = true)
-	public byte[] genererPdfg() {
-		String titre = "Exemple de CV";
-		String contenu = "Ceci est un PDF généré par le service via PdfHelper.";
-		return PdfHelper.generateSimplePdf(titre, contenu);
-	}
-
-	/**
-	 * Génère un PDF avec header (optionnel), contenu et footer (optionnel).
+	 * Génère un pdf.
+	 *
+	 * @param header L'en-tête du pdf à générer.
+	 * @param content Le contenu du pdf à génèrer.
+	 * @param footer Le footer du pdf à générer si jamais on souhaite un footer.
+	 * @return un tableau de byte.
 	 */
 	@Transactional(readOnly = true)
 	public byte[] genererPdf(String header, String content, String footer) {
